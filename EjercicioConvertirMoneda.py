@@ -4,11 +4,12 @@ _MXN = 0.055
 
 def convert(conversion):
     value = float(input("Enter the quantity "))
-    USD = value*conversion
+    USD = round(value*conversion,2)
     return USD
 
 def main():
     print("Welcome to the money converter")
+    print(" ")
     
     while (True):
         print("Select your currency")
@@ -32,7 +33,9 @@ def main():
             print("Invalid option")
 
         if(option >= 1 and option <=3):
+            print(" ")
             print("The converted value is ",USD," USD")
+            print(" ")
         
 
 
