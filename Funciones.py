@@ -1,3 +1,5 @@
+from itertools import product
+
 def ATriangle(b, h):
     return b*h/2
 
@@ -46,3 +48,18 @@ def Factorial(n):
     
     else:
         return n*Factorial(n-1)
+    
+def dadosni(n, c):
+    comb = list(product(range(1, c + 1), repeat = n))
+    SC = {}
+
+    for i in comb:
+        total = sum(i)
+
+        if total in SC:
+            SC[total] += 1
+        
+        else:
+            SC[total] = 1
+    
+    return SC
