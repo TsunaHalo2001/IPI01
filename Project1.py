@@ -1,7 +1,7 @@
 #CRUD
 #Project1
 global default, e101, e102, e103
-Clients = "Luis, Mateo, "
+clients = ["Luis", "Mateo"]
 default = " "
 e101 = "Error 101: Wrong value"
 e102 = "Error 102: The client is already in the list"
@@ -19,16 +19,16 @@ def _print_menu():
     print("[U]pdate an user")
     print("[D]elete an user")
 
-def Menu():
+def menu():
     option = input("Select an option: ").upper()
     if option == "C":
-        CClient()
+        cclient()
     elif option == "R":
-        RClient()
+        rclient()
     elif option == "U":
-        UClient()
+        uclient()
     elif option == "D":
-        DClient()
+        dclient()
     else:
         print(e101)
 
@@ -39,48 +39,48 @@ def _get_client_name(m):
         return input(m).lower().capitalize()
 
 def list_clients():
-    global Clients
-    print(Clients)
+    global clients
+    print(clients)
 
-def CClient():
-    global Clients
+def cclient():
+    global clients
 
     client_name = _get_client_name(default)
 
-    if not (client_name in Clients):
-        Clients += client_name + ", "
+    if not (client_name in clients):
+        clients += client_name + ", "
 
     else:
         print(e102)
 
-def RClient():
-    global Clients
+def rclient():
+    global clients
 
     client_name = _get_client_name(default)
 
-    if (client_name in Clients):
+    if (client_name in clients):
         print("the client ",client_name, " is in the list")
 
     else:
         print(e103)
 
-def UClient():
-    global Clients
+def uclient():
+    global clients
 
     client_name = _get_client_name(default)
-    if (client_name in Clients):
+    if (client_name in clients):
         new_client_name = _get_client_name("Enter the new name: ")
-        Clients = Clients.replace(client_name, new_client_name)
+        clients = clients.replace(client_name, new_client_name)
 
     else:
         print(e103)
 
-def DClient():
-    global Clients
+def dclient():
+    global clients
 
     client_name = _get_client_name(default)
-    if (client_name in Clients):
-        Clients = Clients.replace(client_name + ", ", "")
+    if (client_name in clients):
+        clients = clients.replace(client_name + ", ", "")
 
     else:
         print(e103)
